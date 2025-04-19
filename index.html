@@ -317,16 +317,16 @@
             document.getElementById('zoomModal').style.display = 'none';
         });
 
-        window.addEventListener('orientationchange', () => {
-    const zoomedImage = document.getElementById('zoomedImage');
-    if (window.orientation === 90 || window.orientation === -90) {
-        // Landscape mod
-        zoomedImage.style.objectFit = 'contain';
-    } else {
-        // Portretni mod
-        zoomedImage.style.objectFit = 'cover';
-    }
-});
+        /*window.addEventListener('orientationchange', () => {
+        let zoomedImage = document.getElementById('zoomedImage');
+        if (window.orientation === 90 || window.orientation === -90) {
+            // Landscape mod
+            zoomedImage.style.objectFit = 'contain';
+        }else {
+            // Portretni mod
+            zoomedImage.style.objectFit = 'cover';
+        }
+        });*/
 </script>
 
 
