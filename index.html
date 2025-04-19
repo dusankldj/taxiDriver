@@ -41,7 +41,7 @@
         </nav>
     </header>
 
-    <section class="container-fluid my-5" id="section1"><!--sklonenje klase:bg-light i shadow-->
+    <section class="container-fluid my-5" id="section1">
         <div class="text-center my-4">
             <h1 class="pt-3">
                 Nešto o meni
@@ -65,50 +65,6 @@
         </div>
     </section>
 
-    <script>
-        function racunanjeGodina(){
-            let ispis="";
-            let danasnjiDatum=new Date();
-            let misinDatumRodjenja=new Date("1970-08-30");
-
-            let godine=danasnjiDatum.getFullYear()-misinDatumRodjenja.getFullYear();
-
-            let m=danasnjiDatum.getMonth()-misinDatumRodjenja.getMonth();
-
-            if (m < 0 || (m == 0 && danasnjiDatum.getDate() < misinDatumRodjenja.getDate())) {
-                godine--;
-            }
-
-            let br=godine%10;
-            let konString;
-            switch(br){
-                case 1:
-                    konString="godinu";
-                    break;
-                case 2:
-                case 3:
-                case 4:
-                    konString="godine";
-                    break;
-                default:konString="godina";
-            }
-
-            ispis+=godine+" "+konString;
-            document.getElementById("godine").textContent=ispis;
-        }
-
-        racunanjeGodina();
-
-
-        document.getElementById("toggleBtn").addEventListener("click", function () {
-        if (this.getAttribute("aria-expanded") === "true") {
-            this.textContent = "Prikaži manje";
-        } else {
-            this.textContent = "Prikaži više";
-        }
-        });
-    </script>
-
 
     <section class="container-fluid bg-light my-5 shadow" id="section2">
         <div class="text-center my-4">
@@ -116,7 +72,9 @@
         </div>
     
         
-        <div id="carousel1" class="carousel slide mx-auto py-2" data-bs-ride="false" data-bs-touch="true" data-bs-wrap="true"><!--touch i wrap dodati zbog prevlacenja-->
+        <div id="carousel1" class="carousel slide mx-auto py-2" data-bs-ride="false" data-bs-touch="true"
+        data-bs-wrap="true"
+        data-bs-interval="false">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="assets/img/toyota1.jpeg" class="d-block w-100 rounded" alt="Skoda">
@@ -288,6 +246,86 @@
             <a href="#top" class="text-reset text-decoration-none"><p class="fw-bold">&copy; Miša Đokić &nbsp;<span class="text-danger">PR Taxi</span></p></a>
         </div>
       </footer>
+
+
+<script>
+        function racunanjeGodina(){
+            let ispis="";
+            let danasnjiDatum=new Date();
+            let misinDatumRodjenja=new Date("1970-08-30");
+
+            let godine=danasnjiDatum.getFullYear()-misinDatumRodjenja.getFullYear();
+
+            let m=danasnjiDatum.getMonth()-misinDatumRodjenja.getMonth();
+
+            if (m < 0 || (m == 0 && danasnjiDatum.getDate() < misinDatumRodjenja.getDate())) {
+                godine--;
+            }
+
+            let br=godine%10;
+            let konString;
+            switch(br){
+                case 1:
+                    konString="godinu";
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    konString="godine";
+                    break;
+                default:konString="godina";
+            }
+
+            ispis+=godine+" "+konString;
+            document.getElementById("godine").textContent=ispis;
+        }
+
+        racunanjeGodina();
+
+
+        document.getElementById("toggleBtn").addEventListener("click", function () {
+        if (this.getAttribute("aria-expanded") === "true") {
+            this.textContent = "Prikaži manje";
+        } else {
+            this.textContent = "Prikaži više";
+        }
+        });
+
+
+        let startX = 0;
+
+    // Swipe za touchscreen uređaje
+    carouselEl.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    carouselEl.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        handleSwipe(startX, endX);
+    });
+
+    // Swipe za miša i touchpad na laptopovima
+    carouselEl.addEventListener('mousedown', (e) => {
+        startX = e.clientX;
+    });
+
+    carouselEl.addEventListener('mouseup', (e) => {
+        const endX = e.clientX;
+        handleSwipe(startX, endX);
+    });
+
+    function handleSwipe(start, end) {
+        const diff = start - end;
+        const threshold = 40; // Manja vrednost = osetljivije
+
+    if (diff > threshold) {
+            carousel.next();
+    }else if (diff < -threshold) {
+        carousel.prev();
+    }
+    }
+</script>
+
 
 <!--Bootstrap's JavaScript-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
