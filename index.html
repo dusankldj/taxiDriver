@@ -68,33 +68,47 @@
 
     <section class="container-fluid bg-light my-5 shadow" id="section2">
         <div class="text-center my-4">
-            <h2 class="py-3">Slike</h2>
+          <h2 class="py-3">Slike</h2>
         </div>
-    
-        
-        <div id="carousel1" class="carousel slide mx-auto py-2" data-bs-ride="false" data-bs-touch="true"
-        data-bs-wrap="true"
-        data-bs-interval="false">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/img/toyota1.jpeg" class="d-block w-100 rounded" alt="Skoda">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/img/toyota2.jpeg" class="d-block w-100 rounded" alt="Volkswagen">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/img/toyota3.jpeg" class="d-block w-100 rounded" alt="Toyota">
-                </div>
+      
+        <div id="carousel1" class="carousel slide mx-auto py-2 position-relative" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="assets/img/toyota1.jpeg" class="d-block w-100 rounded zoomable" alt="Toyota 1">
             </div>
-    
-            
-            <div class="carousel-indicators position-static mt-3">
-                <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active rounded-circle" ></button>
-                <button type="button" data-bs-target="#carousel1" data-bs-slide-to="1" class="rounded-circle"></button>
-                <button type="button" data-bs-target="#carousel1" data-bs-slide-to="2" class="rounded-circle"></button>
+            <div class="carousel-item">
+              <img src="assets/img/toyota2.jpeg" class="d-block w-100 rounded zoomable" alt="Toyota 2">
             </div>
+            <div class="carousel-item">
+              <img src="assets/img/toyota3.jpeg" class="d-block w-100 rounded zoomable" alt="Toyota 3">
+            </div>
+          </div>
+      
+          <!-- Strelice -->
+          <button class="carousel-control-prev custom-arrow" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+      
+          <button class="carousel-control-next custom-arrow" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+      
+          <!-- Indikatori -->
+          <div class="carousel-indicators position-static mt-3">
+            <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active rounded-circle"></button>
+            <button type="button" data-bs-target="#carousel1" data-bs-slide-to="1" class="rounded-circle"></button>
+            <button type="button" data-bs-target="#carousel1" data-bs-slide-to="2" class="rounded-circle"></button>
+          </div>
         </div>
-    </section>
+      </section>
+      
+      <!-- Zoom Modal -->
+      <div id="zoomModal" class="zoom-modal">
+        <button id="closeZoom" class="close-button">× Zatvori</button>
+        <img id="zoomedImage" src="" alt="Zoomed" />
+      </div>
 
 
     <section class="container-fluid bg-light my-5 shadow py-5" id="section3">
@@ -292,38 +306,16 @@
         });
 
 
-        let startX = 0;
+        document.querySelectorAll('.zoomable').forEach(img => {
+        img.addEventListener('click', () => {
+        document.getElementById('zoomedImage').src = img.src;
+        document.getElementById('zoomModal').style.display = 'flex';
+            });
+        });
 
-    // Swipe za touchscreen uređaje
-    carouselEl.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-    });
-
-    carouselEl.addEventListener('touchend', (e) => {
-        const endX = e.changedTouches[0].clientX;
-        handleSwipe(startX, endX);
-    });
-
-    // Swipe za miša i touchpad na laptopovima
-    carouselEl.addEventListener('mousedown', (e) => {
-        startX = e.clientX;
-    });
-
-    carouselEl.addEventListener('mouseup', (e) => {
-        const endX = e.clientX;
-        handleSwipe(startX, endX);
-    });
-
-    function handleSwipe(start, end) {
-        const diff = start - end;
-        const threshold = 40; // Manja vrednost = osetljivije
-
-    if (diff > threshold) {
-            carousel.next();
-    }else if (diff < -threshold) {
-        carousel.prev();
-    }
-    }
+        document.getElementById('closeZoom').addEventListener('click', () => {
+        document.getElementById('zoomModal').style.display = 'none';
+        });
 </script>
 
 
