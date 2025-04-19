@@ -1,1 +1,135 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Lexend', sans-serif;
+}
+
+
+.nav-link{
+    color:#000 !important;
+    transition:all 0.45s ease-in-out !important;
+}
+
+.nav-link:hover{
+    background-color:rgb(220,53,69) !important;
+    color:#fff !important;
+}
+
+.myRed{
+    color:rgb(220,53,69);
+}
+
+#myPic{
+    transition:all 0.45s ease-in-out;
+    width:45vh;
+}
+
+#myPic:hover{
+    transform: scale(1.075);
+}
+
+
+
+
+#centriranTextDoMd{
+    text-align: left;
+}
+
+#centrirajBlokove{
+    justify-content:space-between;
+}
+
+@media(max-width:991px){
+    #centriranTextDoMd{
+        text-align: justify;
+    }
+
+    #centrirajBlokove{
+        justify-content:center;
+    }
+
+}
+
+#carousel1{
+    width:85%;
+}
+
+@media(max-width:576px){
+    #carousel1{
+        width:100%;
+    }
+    #mojaSlikaBlok{
+        width:85% !important;
+    }
+}
+
+#toggleBtn{
+    text-underline-offset:0.4vh;
+}
+
+#playSound{
+    cursor: pointer;
+    transition:all 0.35s ease-in-out;
+}
+
+#playSound:hover{
+    color:rgb(220, 53, 69);
+}
+
+.blagoUvelicanje{
+    transition:all 0.35 ease-in-out !important;
+}
+
+.blagoUvelicanje:hover{
+    transform: scale(1.15) !important;
+}
+
+.carousel-indicators button{
+    background-color: #000 !important;
+    width: 1.7vh !important; /*mozda u pixele, pogledati*/
+    height: 1.7vh !important;
+}
+
+.carousel-indicators .active{
+    background-color: rgb(220,53,69) !important;
+}
+
+.btn-floating{
+    transition: all 0.3s ease-in-out !important;
+}
+
+.btn-floating:hover{
+    background-color: rgb(220, 53, 69) !important;
+    color: #fff !important; 
+    border-color: rgb(220, 53, 69) !important; 
+}
+
+.carousel i{
+    transition:all 0.35s ease-in-out;
+}
+
+.carousel i:hover{
+    transform: scale(1.15);
+    color:rgb(220, 53, 69) !important;
+}
+
+#kontaktNav li a{
+    color: #000;
+    transition:all 0.35s ease-in-out;
+}
+
+#kontaktNav li a:hover{
+    color:rgb(220, 53, 69);
+}
+
+
+#centriranTextDoMd a{
+    color:rgb(220, 53, 69);
+}
+
+footer{
+    background-color: #000;
+}  
+
+
 
