@@ -307,15 +307,26 @@
 
 
         document.querySelectorAll('.zoomable').forEach(img => {
-        img.addEventListener('click', () => {
-        document.getElementById('zoomedImage').src = img.src;
-        document.getElementById('zoomModal').style.display = 'flex';
+            img.addEventListener('click', () => {
+                document.getElementById('zoomedImage').src = img.src;
+                document.getElementById('zoomModal').style.display = 'flex';
             });
         });
 
         document.getElementById('closeZoom').addEventListener('click', () => {
-        document.getElementById('zoomModal').style.display = 'none';
+            document.getElementById('zoomModal').style.display = 'none';
         });
+
+        window.addEventListener('orientationchange', () => {
+    const zoomedImage = document.getElementById('zoomedImage');
+    if (window.orientation === 90 || window.orientation === -90) {
+        // Landscape mod
+        zoomedImage.style.objectFit = 'contain';
+    } else {
+        // Portretni mod
+        zoomedImage.style.objectFit = 'cover';
+    }
+});
 </script>
 
 
