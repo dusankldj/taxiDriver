@@ -49,12 +49,15 @@
         </div>
         <div class="d-flex flex-column flex-lg-row flex-xl-row flex-xxl-row" id="centrirajBlokove">
             <div class="mx-4 py-3 mr-5" id="centriranTextDoMd">
-                Zdravo! Moje ime je <span class="myRed fw-bold">Miša Đokić</span>, 
-                imam <span id="godine"></span> i ja sam profesionalni vozač. Bavim se ovim poslom
-                preko 20 godina i imam iskustva u voženju svih vrsta vozila. Trenutno radim u Yandex i Naxis taksiju.
-                <span id="moreText" class="collapse">Moje trenutno vozilo je Toyota Carolla. Pored taksiranja, radio sam i u prevozu tereta,
-                kako za domaće, tako i za strane firme. U dogovoru sa partnerima radimo sve vrste transporta
-                .</span>
+                 Zdravo! Moje ime je <span class="myRed fw-bold">Miša Đokić</span>, taksi prevoznik, 
+                 profesionalac sam, sa 30-godišnjim bogatim iskustvom u putničkom i teretnom saobraćaju.
+                 U saradnji sa partnerima,
+                 moguća organizacija svih vrsta prevoza putnika, po povoljnim cenama. 
+                 Posebne pogodnosti za vožnje van grada (za udaljenosti preko 50 km). 
+                 <a href="#kontaktBlok" class="text-decoration-none text-dark"><span class="myRed">Kontaktirajte me</span></a> za više informacija i dogovor.
+                <span id="moreText" class="collapse">Moje trenutno vozilo je Toyota Corolla. Pored taksiranja, radio sam i u prevozu tereta
+                    u domaćem i međunarodnom saobraćaju. Radim za Naxis taxi pod službenim brojem 101.
+                </span>
                 <a class="btn btn-link p-0" data-bs-toggle="collapse" href="#moreText" role="button" 
                 aria-expanded="false" aria-controls="moreText" id="toggleBtn">Prikaži više</a>
             </div> 
@@ -84,7 +87,7 @@
             </div>
             <div class="carousel-item">
                 <img src="assets/img/toyota4.jpg" class="d-block w-100 rounded zoomable" alt="Toyota 4">
-              </div>
+            </div>
           </div>
       
           <button class="carousel-control-prev custom-arrow" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
@@ -132,7 +135,7 @@
                         </div>
                         <div class="carousel-item">
                             <i class="fa-solid fa-van-shuttle display-2 mb-3 mt-2"></i>
-                            <p>Putni kombi</p>
+                            <p>Putnički kombi</p>
                         </div>
                         <div class="carousel-item">
                             <i class="fa-solid fa-truck-moving display-2 mb-3 mt-2"></i>
@@ -194,19 +197,11 @@
                 </div>
                 <div class="carousel-item">
                     <i class="fa-solid fa-people-arrows display-2 mb-3 mt-2"></i>
-                    <p>Ljubazna usluga/Komunikativnost</p>
+                    <p>Ljubazna usluga / Komunikativnost</p>
                 </div>
                 <div class="carousel-item">
                     <i class="fa-solid fa-child-reaching display-2 mb-3 mt-2"></i>
                     <p>Druželjubiv i sa mlađim drugarima</p>
-                </div>
-                <div class="carousel-item">
-                    <i class="fa-solid fa-paw display-2 mb-3 mt-2"></i>
-                    <p>Dozvoljeni kućni ljubimci</p>
-                </div>
-                <div class="carousel-item">
-                    <i class="fa-solid fa-music display-2 mb-3 mt-2"></i>
-                    <p>Udobna vožnja uz vašu muziku</p>
                 </div>
                 <div class="carousel-item">
                     <i class="fa-solid fa-ban-smoking display-2 mb-3 mt-2"></i>
@@ -226,8 +221,8 @@
         </div>
 
         <div class="my-4 mx-4 pb-3">
-            <p>Često vozim po gradu, ako imate bilo kakvih pitanja možete mi slobodno prići i javiti se.
-                Otvoren sam za bilo kakva pitanja. Možete mi se obratiti i putem mreža ili pozivom na telefon. <span class="fw-bold">Linkovi:</span>
+            <p>
+                Otvoren sam za bilo kakva pitanja. Možete mi se obratiti. <span class="fw-bold">Linkovi:</span>
             </p>
             <ul class="list-unstyled fst-italic" id="kontaktNav">
                 <li class="my-2"><a href="tel:+38163264242" class="text-decoration-none" target="_blank"><i class="fa fa-phone text-dark" aria-hidden="true"></i>&nbsp;&nbsp;+381 63 264242</a></li>
@@ -267,40 +262,6 @@
 
 
 <script>
-        function racunanjeGodina(){
-            let ispis="";
-            let danasnjiDatum=new Date();
-            let misinDatumRodjenja=new Date("1970-08-30");
-
-            let godine=danasnjiDatum.getFullYear()-misinDatumRodjenja.getFullYear();
-
-            let m=danasnjiDatum.getMonth()-misinDatumRodjenja.getMonth();
-
-            if (m < 0 || (m == 0 && danasnjiDatum.getDate() < misinDatumRodjenja.getDate())) {
-                godine--;
-            }
-
-            let br=godine%10;
-            let konString;
-            switch(br){
-                case 1:
-                    konString="godinu";
-                    break;
-                case 2:
-                case 3:
-                case 4:
-                    konString="godine";
-                    break;
-                default:konString="godina";
-            }
-
-            ispis+=godine+" "+konString;
-            document.getElementById("godine").textContent=ispis;
-        }
-
-        racunanjeGodina();
-
-
         document.getElementById("toggleBtn").addEventListener("click", function () {
         if (this.getAttribute("aria-expanded") === "true") {
             this.textContent = "Prikaži manje";
@@ -321,16 +282,6 @@
             document.getElementById('zoomModal').style.display = 'none';
         });
 
-        /*window.addEventListener('orientationchange', () => {
-        let zoomedImage = document.getElementById('zoomedImage');
-        if (window.orientation === 90 || window.orientation === -90) {
-            // Landscape mod
-            zoomedImage.style.objectFit = 'contain';
-        }else {
-            // Portretni mod
-            zoomedImage.style.objectFit = 'cover';
-        }
-        });*/
 </script>
 
 
